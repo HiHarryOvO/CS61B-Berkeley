@@ -49,3 +49,6 @@ When compiling `StdDrawDemo.java`, some errors with "GBK" in it raised. The issu
 ```
 javac -encoding UTF8 StdDrawDemo.java
 ```
+----------------------------------------------------------------------------------
+
+Finished basic parts of proj0 and will come back later for the gold points part.
