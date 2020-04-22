@@ -7,12 +7,15 @@ public class NBody {
 		double radiusUniverse = readRadius(filename);
 		Planet[] planets = readPlanets(filename);
 
-		/*Set the scale*/
+		/* Set the scale */
 		StdDraw.setScale(-1 * radiusUniverse, radiusUniverse);
 
-		/*Draw the background*/
+		/* Draw the background */
 		StdDraw.picture(0, 0, "images/starfield.jpg");
-		//StdDraw.show();
+		// StdDraw.show();
+
+		/* Play the background music*/
+		StdAudio.play("audio/2001.mid");
 
 		for(int i = 0; i < planets.length; i++) {
 			planets[i].draw();
@@ -48,7 +51,9 @@ public class NBody {
 			StdDraw.pause(10);
 		}
 
-		/*Print the universe*/
+		StdAudio.close();
+
+		/* Print the universe */
 		StdOut.printf("%d\n", planets.length);
 		StdOut.printf("%.2e\n", radiusUniverse);
 		for(int i = 0; i < planets.length; i++) {
