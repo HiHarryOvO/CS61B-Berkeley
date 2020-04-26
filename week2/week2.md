@@ -16,4 +16,9 @@ iteratively is kind of tortuous for me in the beginning.
 
 After I solved them, it occurred to me that using recusion method might be 
 more natual. Therefore, I figured out incrRecursionList() but still have no idea about the dincrRecursionList(). 
-Looks unsolvable to me because IntList L passed to the function are changing everytime we run it.
+Looks unsolvable to me because IntList L passed to the function are changing everytime we run it (didn't realize that 
+pass by value won't change it).
+
+04.26 -- updated IntList.java with dincrRecursionList() method and simplified part of the main method.
+
+Due to pass by value, L remains unchanged after we call the dincrRecursionList() method.

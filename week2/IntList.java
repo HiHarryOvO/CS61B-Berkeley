@@ -83,6 +83,15 @@ public class IntList {
 		return L;
 	}
 
+	public static IntList dincrRecursionList(IntList L, int x) {
+		if (L == null) {
+			return L;
+		}
+		L.first = L.first + x;
+		dincrRecursionList(L.rest, x);
+		return L;
+	}
+	
 	public static void main(String[] args) {
 		IntList L = new IntList(15, null);
 		L = new IntList(10, L);
@@ -93,18 +102,21 @@ public class IntList {
 		System.out.printf("2nd item in the list: %d\n", L.get(1));
 
 		System.out.println("Test incrIterativeList with increment of 40:");
-		IntList listA = incrIterativeList(L, 40);
-		listA.printList();
+		incrIterativeList(L, 40).printList();
 
 		System.out.println("Test incrRecursionList with increment of 40:");
-		IntList listB = incrRecursionList(L, 40);
-		listB.printList();
+		incrRecursionList(L, 40).printList();
 
 		System.out.println("Test dincrIterativeList with increment of 40:");
-		IntList listC = dincrIterativeList(L, 40);
-		listC.printList();
+		dincrIterativeList(L, 40).printList();
 
 		System.out.println("We'll see L has been changed due to dincrIterativeList function:");
+		L.printList();
+
+		System.out.println("Test dincrRecursionList with increment of 40:");
+		dincrRecursionList(L, 40).printList();
+
+		System.out.println("We'll see L has been changed due to dincrRecursionList function:");
 		L.printList();
 	}
 }
