@@ -22,3 +22,19 @@ pass by value won't change it).
 04.26 -- updated IntList.java with dincrRecursionList() method and simplified part of the main method.
 
 Due to pass by value, L remains unchanged after we call the dincrRecursionList() method.
+
+-------------------------------------------------------------------
+
+## 2.2 SLLists, Access Control, Nested Classes, Sentinel Nodes
+
+Making the variable private doesn't mean you cannot alter it. Instead, you can alter it by given public methods such as 
+addFirst().
+
+Nested Classes -- useful when a class doesn't stand on its own and is obviously a 
+subordinate to another class.
+
+Make the nested class private if other classes should never use the nested class.
+
+Why use the keyword static in Nested Classes?
+
+When a sentinel node is implemented, the first item of the list is always (if exists) at sentinel.next. (哨兵节点)
