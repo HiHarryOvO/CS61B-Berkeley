@@ -55,6 +55,9 @@ public class IntListTest {
         IntList exp = IntList.of(1, 2, 3, 4, 5, 6);
         assertEquals(exp, IntList.dcatenate(A, B));
         assertEquals(IntList.of(1, 2, 3, 4, 5, 6), A);
+
+        IntList C = IntList.of(1, 2, 3);
+        assertEquals(IntList.of(1, 2, 3), IntList.dcatenate(null, C));
     }
 
     @Test
@@ -64,6 +67,9 @@ public class IntListTest {
         IntList exp = IntList.of(1, 2, 3, 4, 5, 6);
         assertEquals(exp, IntList.catenate(A, B));
         assertEquals(IntList.of(1, 2, 3), A);
+
+        IntList C = IntList.of(1, 2, 3);
+        assertEquals(IntList.of(1, 2, 3), IntList.dcatenate(C, null));
     }
 
 }
