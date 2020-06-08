@@ -28,7 +28,7 @@ public class SLList {
 	}
 
 	public void addLast(int x) {
-		IntNode p = first;
+		IntNode p = sentinel;
 
 		while (p.next != null) {
 			p = p.next;
