@@ -82,7 +82,18 @@ public class IntList {
 
     public static IntList dcatenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+        IntList result = A;
+
+        if (A == null) {
+            return B;
+        }
+
+        while (A.rest != null) {
+            A = A.rest;
+        }
+        A.rest = B;
+
+        return result;
     }
 
     /**
@@ -91,10 +102,38 @@ public class IntList {
      */
     public static IntList catenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+        if (A == null) {
+            if(B == null) {
+                return null;
+            }
+            return new IntList(B.first, B.rest);
+        }
+
+        IntList copyA = new IntList(A.first, null);
+        IntList ptr = copyA;
+        while (A.rest != null) {
+            A = A.rest;
+            ptr.rest = new IntList(A.first, null);
+            ptr = ptr.rest;
+        }
+        if (B != null) {
+            ptr.rest = new IntList(B.first, B.rest);
+        }
+        return copyA;
     }
 
+    /** Reverse a IntList. Destructive. */
+    public static IntList reverse(IntList A) {
+        if (A == null || A.rest == null) {
+            return A;
+        }
+        IntList endOfReversed = A.rest;
+        IntList reversed = reverse(A.rest);
+        endOfReversed.rest = A;
+        A.rest = null;
 
+        return reversed;
+    }
 
 
 
