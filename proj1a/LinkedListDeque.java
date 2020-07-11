@@ -27,8 +27,7 @@ public class LinkedListDeque<T> {
             sentinel.next = new TNode(item, sentinel, sentinel);
             sentinel.prev = sentinel.next;
 
-        }
-        else {
+        } else {
             sentinel.next = new TNode(item, sentinel, sentinel.next);
             sentinel.next.next.prev = sentinel.next;
         }
@@ -41,8 +40,7 @@ public class LinkedListDeque<T> {
             sentinel = new TNode(item, null, null);
             sentinel.next = new TNode(item, sentinel, sentinel);
             sentinel.prev = sentinel.next;
-        }
-        else {
+        } else {
             sentinel.prev = new TNode(item, sentinel.prev, sentinel);
             sentinel.prev.prev.next = sentinel.prev;
         }
@@ -76,6 +74,9 @@ public class LinkedListDeque<T> {
 
     /** Remove the first item and return it. */
     public T removeFirst() {
+        if (sentinel == null || sentinel.next == null) {
+            return null;
+        }
         T value = sentinel.next.item;
         sentinel.next = sentinel.next.next;
         sentinel.next.prev = sentinel;
@@ -86,6 +87,9 @@ public class LinkedListDeque<T> {
 
     /** Remove the last item and return it. */
     public T removeLast() {
+        if (sentinel == null || sentinel.prev == null) {
+            return null;
+        }
         T value = sentinel.prev.item;
         sentinel.prev = sentinel.prev.prev;
         sentinel.prev.next = sentinel;
@@ -106,13 +110,14 @@ public class LinkedListDeque<T> {
         return getRecursiveHelper(sentinel.next, index);
     }
 
-    public T getRecursiveHelper(TNode p, int index) {
+    private T getRecursiveHelper(TNode p, int index) {
         if (index == 0) {
             return p.item;
         }
         return getRecursiveHelper(p.next, index - 1);
     }
 
+    /*
     public static void main(String[] args) {
         LinkedListDeque<Integer> l1 = new LinkedListDeque<Integer>();
         l1.addFirst(1);
@@ -122,5 +127,5 @@ public class LinkedListDeque<T> {
         l1.printDeque();
         System.out.println(l1.getRecursive(1));
         System.out.println(l1.size());
-    }
+    }*/
 }

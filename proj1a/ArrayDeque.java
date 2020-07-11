@@ -23,8 +23,7 @@ public class ArrayDeque<T> {
             System.arraycopy(items, newEnd - size, a, capacity - size, size);
             newEnd = 0;
             newStart = capacity - size - 1;
-        }
-        else {
+        } else {
             /* Resize the array when newStart == newEnd. */
             System.arraycopy(items, 0, a, 0, newEnd);
             System.arraycopy(items, newStart + 1, a, capacity - (items.length - newStart - 1),
@@ -55,8 +54,7 @@ public class ArrayDeque<T> {
 
         if (newEnd == items.length - 1) {
             newEnd = 0;
-        }
-        else {
+        } else {
             newEnd += 1;
         }
     }
@@ -92,8 +90,7 @@ public class ArrayDeque<T> {
     public T removeLast() {
         if (newEnd == 0) {
             newEnd = items.length - 1;
-        }
-        else {
+        } else {
             newEnd -= 1;
         }
         size -= 1;
@@ -104,6 +101,7 @@ public class ArrayDeque<T> {
         return items[(newStart + 1 + index) % items.length];
     }
 
+    /*
     public static void main(String[] args) {
         ArrayDeque<Integer> l1 = new ArrayDeque<Integer>();
         for (int i = 0; i < 16; i++) {
@@ -120,5 +118,5 @@ public class ArrayDeque<T> {
         l2.printDeque();
         System.out.println(l2.get(7));
         System.out.println(l2.size());
-    }
+    }*/
 }
